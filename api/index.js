@@ -7,4 +7,5 @@ dotenv.config({path: "../.env"});
 
 // Connect to the database
 connectToDB();
-expressApp();
+const app = expressApp();
+export default app;
