@@ -3,10 +3,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export default async function handler(req, res) {
+export default async function handler() {
   try {
-    const app = await main();
-    app(req, res);
+    main();
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
