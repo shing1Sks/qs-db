@@ -1,12 +1,21 @@
-import main from "op-db";
 import dotenv from "dotenv";
+import express from "express";
+import { connectToDB } from "op-db/dbMongo";
+import { app as expressApp } from "op-db/expressApp";
 
 dotenv.config();
 
-export default async function handler() {
-  try {
-    main();
-  } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-}
+const app = express();
+
+// Connect to the database
+connectToDB();
+
+// Use the expressApp middleware
+app.use(expressApp);
+
+// Route definitions
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
+
+export default app;
