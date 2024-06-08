@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
 import express from "express";
-import { connectToDB } from "op-db/dbMongo";
-import { app as expressApp } from "op-db/expressApp";
+import connectToDB from "op-db/dbMongo.js";
+import expressApp from "op-db/expressApp.js";
 
-dotenv.config();
+dotenv.config({path: "../.env"});
 
 const app = express();
 
